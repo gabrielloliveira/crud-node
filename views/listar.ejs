@@ -10,6 +10,7 @@
             <th>Idade</th>
             <th>Email</th>
             <th>Opções</th>
+            <th></th>
           </tr>
         <tbody>
           <% customers.forEach((customer) => { %>
@@ -18,12 +19,16 @@
             <td><%= customer.idade %></td>
             <td><%= customer.email %></td>
             <td>
-              <a href="/editar/<%= customer._id %>" title="Editar">
-                <span class="icon is-medium has-text-warning">
-                  <i class="fa fa-2x fa-pencil-square"></i>
-                </span>
-              </a>
+              <a href="/editar/<%= customer._id %>" title="Editar" class="button is-warning"><i class="fa fa-pencil"></i></a>
             </td>  
+            <td> 
+              <form action="/excluir/<%= customer._id %>" method="post" class="botao-opcoes">
+                <input type="hidden" name="excluir">
+                <button class="button is-danger" title="Excluir">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </form>
+            </td>
           </tr>
           <% }) %>
         </tbody>

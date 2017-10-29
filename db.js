@@ -29,11 +29,15 @@ function findCustomer(id, callback){
   global.db.collection("customers").find(new ObjectId(id)).toArray(callback)
 }
 
-function update(id, nome, email, idade, callback){
+function updateCustomer(id, nome, email, idade, callback){
   global.db.collection("customers").updateOne(
     {_id:new ObjectId(id)}, 
     { nome, email, idade}, 
     callback);
 }
+  
+function deleteCustomer(id, callback){
+  global.db.collection("customers").deleteOne({_id: new ObjectId(id)}, callback);
+}
 
-module.exports = { saveCustomer, findCustomers, findCustomer, update }
+module.exports = { saveCustomer, findCustomers, findCustomer, updateCustomer, deleteCustomer }

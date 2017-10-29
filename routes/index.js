@@ -26,7 +26,15 @@ router.post('/atualizar/:id', (req, res, next) => {
   const nome = req.body.nome
   const email = req.body.email
   const idade = parseInt(req.body.idade)
-  db.update(id, nome, email, idade, (err, result) =>{
+  db.updateCustomer(id, nome, email, idade, (err, result) =>{
+    if (err) console.log(err);
+    res.redirect("/listar/")
+  })
+});
+
+router.post('/excluir/:id', (req, res, next) => {
+  const id = req.params.id
+  db.deleteCustomer(id, (err, result) =>{
     if (err) console.log(err);
     res.redirect("/listar/")
   })
