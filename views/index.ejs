@@ -1,0 +1,45 @@
+<% include ./header %>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <form action="">
+        <div class="field">
+          <label class="label">Nome</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Seu nome">
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input" type="email" placeholder="seu@email.com">
+                <!-- <span class="icon is-small is-right">
+                  <i class="fa fa-warning"></i>
+                </span> -->
+              </div>
+              <!-- <p class="help is-danger">This email is invalid</p> -->
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">Idade</label>
+              <div class="control">
+                <input class="input" type="number" step="1" min="1" placeholder="18">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link">Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<% include ./footer %>
