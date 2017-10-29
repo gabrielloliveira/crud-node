@@ -3,11 +3,11 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
-      <form action="/cadastrar/" method="post">
+      <form action="/atualizar/<%= customer._id %>" method="post">
         <div class="field">
           <label class="label">Nome</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Seu nome" name="nome">
+            <input class="input" type="text" value="<%= customer.nome %>" name="nome">
           </div>
         </div>
         <div class="columns">
@@ -15,7 +15,7 @@
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input class="input" type="email" placeholder="seu@email.com" name="email">
+                <input class="input" type="email" value="<%= customer.email %>" name="email">
                 <!-- <span class="icon is-small is-right">
                   <i class="fa fa-warning"></i>
                 </span> -->
@@ -27,14 +27,14 @@
             <div class="field">
               <label class="label">Idade</label>
               <div class="control">
-                <input class="input" type="number" step="1" min="1" placeholder="18" name="idade">
+                <input class="input" type="number" step="1" min="1" value="<%= customer.idade %>" name="idade">
               </div>
             </div>
           </div>
         </div>
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-link">Cadastrar</button>
+            <button class="button is-link">Editar</button>
           </div>
         </div>
       </form>

@@ -20,20 +20,20 @@
       </div>
       <div class="tabs is-centered is-boxed is-medium">
         <ul>
-          <li class="is-active">
-            <a>
+          <li <% if (link == 1) { %> class="is-active" <% } %>>
+            <a href="/">
               <span class="icon is-small"><i class="fa fa-id-card-o"></i></span>
               <span>Cadastro</span>
             </a>
           </li>
-          <li>
-            <a>
+          <li <% if (link == 2) { %> class="is-active" <% } %>>
+            <a href="/listar/">
               <span class="icon is-small"><i class="fa fa-list"></i></span>
               <span>Lista</span>
             </a>
           </li>
           <li>
-            <a>
+            <a href="/pesquisar/">
               <span class="icon is-small"><i class="fa fa-search"></i></span>
               <span>Pesquisar</span>
             </a>

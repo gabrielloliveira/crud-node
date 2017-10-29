@@ -1,0 +1,35 @@
+<% include ./header %>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Opções</th>
+          </tr>
+        <tbody>
+          <% customers.forEach((customer) => { %>
+          <tr>
+            <td><%= customer.nome %></td>
+            <td><%= customer.idade %></td>
+            <td><%= customer.email %></td>
+            <td>
+              <a href="/editar/<%= customer._id %>" title="Editar">
+                <span class="icon is-medium has-text-warning">
+                  <i class="fa fa-2x fa-pencil-square"></i>
+                </span>
+              </a>
+            </td>  
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<% include ./footer %>
