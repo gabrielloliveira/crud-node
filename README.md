@@ -7,4 +7,4 @@ Uma aplicação simples de crud feita por [Gabriell Oliveira](https://gabriellol
 - Entre na pasta do projeto: ```cd crud-node/```
 - Instale as dependências: ```npm install```
 - Rode o projeto: ```npm start```
-- Acesse em [Gabriell Oliveira](http://localhost:3000)
+- Acesse em [http://localhost:3000](http://localhost:3000)
