@@ -1,0 +1,60 @@
+<% include ./header %>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <form action="" method="get">
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input class="input" type="text" placeholder="Digite o nome" name="nome">
+          </div>
+          <div class="control">
+            <button class="button is-link">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<%
+  if(results){
+    if(customers.length > 0){
+%>
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">Resultados da pesquisa por '<%= search %>'</h1>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Idade</th>
+                  <th>Email</th>
+                </tr>
+              <tbody>
+                <% customers.forEach((customer) => { %>
+                <tr>
+                  <td><%= customer.nome %></td>
+                  <td><%= customer.idade %></td>
+                  <td><%= customer.email %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+<%  }else { %>
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">Nenhum resultado para '<%= search %>'</h1>
+          </div>
+        </div>
+      </section>        
+<%  }
+  }
+%>
+<% include ./footer %>

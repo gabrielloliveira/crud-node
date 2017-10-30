@@ -1,10 +1,22 @@
 const mongoClient = require("mongodb").MongoClient
 const ObjectId = require("mongodb").ObjectId;
+const mongoose = require('mongoose');
+ 
+mongoose.connect('mongodb://localhost/crud-node', {
+  useMongoClient: true,
+});
 
 mongoClient.connect("mongodb://localhost/crud-node", (err, conn) =>{
   if (err) console.log(err);
   global.db = conn;
 })
+
+const customerSchema = new mongoose.Schema({
+    nome: String,
+    email: String,
+    idade: Number
+}, { collection: 'customers' }
+);
 
 function saveCustomer(nome, email, idade, callback) {
   global.db.collection("customers").insert(
@@ -40,4 +52,10 @@ function deleteCustomer(id, callback){
   global.db.collection("customers").deleteOne({_id: new ObjectId(id)}, callback);
 }
 
-module.exports = { saveCustomer, findCustomers, findCustomer, updateCustomer, deleteCustomer }
+module.exports = { saveCustomer, 
+  findCustomers, 
+  findCustomer, 
+  updateCustomer, 
+  deleteCustomer,
+  Mongoose: mongoose, 
+  CustomerSchema: customerSchema }

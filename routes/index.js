@@ -13,6 +13,18 @@ router.get('/listar/', (req, res, next) => {
   })
 });
 
+router.get('/pesquisar/', (req, res, next) => {
+  if (req.query.nome){
+    const regex = new RegExp(escapeRegExp(req.query.nome), 'gi');
+    const Customer = db.Mongoose.model('customers', db.CustomerSchema, 'customers');
+    Customer.find({ nome: { $in: regex } }, function (e, docs) {
+      res.render('pesquisar', { title: 'Resultado', link: 3, results: true, search: req.query.nome, customers: docs });
+    });
+  }else{
+    res.render('pesquisar', { title: 'Pesquisar', link: 3, results: false});
+  }
+});
+
 router.get('/editar/:id', (req, res, next) => {
   const id = req.params.id
   db.findCustomer(id, (err, docs) => {
@@ -48,5 +60,9 @@ router.post('/cadastrar/', (req, res) => {
     res.redirect("/listar/")
   })
 });
+
+function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
 
 module.exports = router;
